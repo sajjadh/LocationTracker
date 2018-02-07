@@ -1,0 +1,83 @@
+@(detailsForm1: Form[furniture])
+
+@import helper._
+
+@layout("Update Furniture"){
+
+    <h1> Please fill the form to Add new Furniture </h1>
+    <p><a class="text-warning" href="#">Note: Refer respective documents for more details</a></p>
+    @helper.form(action = routes.FurnitureController.saveUpdate()){
+        <div class="col-lg-6 col-lg-offset-3">
+            @helper.inputText(detailsForm1("id"), 'class -> "form-control")
+
+            @helper.select(
+                detailsForm1("FurnitureName"),
+                helper.options(Seq("Mel Desk","pin Desk","Mel Bookcase","Pin Bookcase", "Pin Filing Cabinet",
+                    "Metal Filing Cabinets", "Gas-lift Chair", "Fixed-frame Chair")),
+                '_label -> "Furniture Name", '_default -> "---- Select Furniture ----"
+                , 'class -> "form-control")
+
+
+            @helper.select(
+                detailsForm1("FurnitureBarcode"),
+                helper.options(Seq("4605664000050", "8076809513456", "9780444505156","3155250001387", "3014260115531",
+                    "3006634623969", "8020187300016", "1234567891011")),
+                '_label -> "Furniture barcode", '_default -> "---- Select Barcode ----"
+                , 'class -> "form-control")
+
+
+            @helper.inputDate(detailsForm1("furnitureAcquisitionDate"), 'class -> "form-control")
+
+
+            @helper.inputText(detailsForm1("FurnitureCost"), 'class -> "form-control")
+
+
+            @helper.inputText(detailsForm1("OccupyingDept"), 'class -> "form-control")
+
+
+            @helper.inputText(detailsForm1("Occupant"), 'class -> "form-control")
+
+
+            @helper.inputText(detailsForm1("BuildingNo"), 'class -> "form-control")
+
+
+            @helper.inputText(detailsForm1("FloorNo"), 'class -> "form-control")
+
+            @helper.inputText(detailsForm1("Room"), 'class -> "form-control")
+
+            @helper.select(
+                detailsForm1("SpaceType"),
+                helper.options(Seq("Office", "General teaching room", "Scientific Lab","Computer Lab", "Engineering Lab",
+                    "Medical Lab", "Ancillary area", "Library", "General facility area", "Student Residential Accommodation",
+                    "Non usable floor area")),
+                '_label -> "SpaceType", '_default -> "-------- Select SpaceType --------"
+                , 'class -> "form-control")
+
+            @helper.inputText(detailsForm1("SpaceCode"), 'class -> "form-control")
+
+            @helper.select(
+                detailsForm1("Task"),
+                helper.options(Seq("Available")),
+                '_label -> "Task", '_default -> "-------- Select TASK --------"
+                , 'class -> "form-control")
+
+            @helper.select(
+                detailsForm1("Status"),
+                helper.options (Seq ("Available", "Not Available")),
+                '_label -> "Status", '_default -> "-------- Select STATUS --------"
+                , 'class -> "form-control")
+
+            @helper.inputText(detailsForm1("BoughtAgent"), 'class -> "form-control")
+            <p class="text-info"><i class="glyphicon glyphicon-comment"></i>Note -: Please mention all the details with Purchasing the furniture</p>
+
+            @helper.inputText(detailsForm1("key"), 'class -> "form-control")
+            <p class="text-info"><i class="glyphicon glyphicon-comment"></i>Note -: Please Input the key number if available</p>
+
+
+
+        <p align="right">
+            <button type="submit" class="btn btn-primary"> PROCEED UPDATE</button>
+        </p></div>
+    }
+}
+

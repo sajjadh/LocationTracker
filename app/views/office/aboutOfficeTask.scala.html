@@ -1,0 +1,51 @@
+@(Office : office)
+
+@layout(Office.occupyingRoom){
+
+    <div class="panel" align="left" style="margin-left: 50px">
+        <h2 class="panel-heading">Location Details </h2>
+            <p> ID : @Office.id </p>
+            <p> Department :@Office.occupyingDept </p>
+            <p>Occupant : @Office.occupant<a class="btn btn-link" href="#"> <i class="glyphicon glyphicon-link"></i></a></p>
+            <p> Building No: @Office.occupyingBuildingNo </p>
+            <p> Floor No : @Office.occupyingFloorNo</p>
+            <p> Room : @Office.occupyingRoom </p>
+            <p> Space Type : @Office.occupyingSpaceType </p>
+            <p> Space Code : @Office.occupyingSpaceCode</p>
+    </div>
+
+    <div class="panel" align="left" style="margin-left: 50px">
+        <h2 class="panel-heading">Task Details </h2>
+            <p>ID : @Office.id</p>
+            <p>TASk :@Office.todo</p>
+            <p>STATUS :@Office.status</p>
+            <p>Maintenance Call : @Office.maintenanceCall</p>
+            <p>Call Status : @Office.callStatus</p>
+            <p> Scheduled Date : @Office.dateToCarryOutTheTask</p>
+            <p> Completed Date: @Office.completedDate</p>
+    </div>
+
+    <div class="panel" align="left" style="margin-left: 50px">
+        <h2 class="panel-heading"> Relocation Details</h2>
+            <p>Destination Dept : @Office.destinedDept</p>
+            <p>Destination Dept Occupant : @Office.destinedOccupant<a class="btn btn-link" href="#"> <i class="glyphicon glyphicon-link"></i></a> </p>
+            <p> Destination BuildingNo : @Office.destinedBuildingNo</p>
+            <p> Destination FloorNo: @Office.destinedFloorNo</p>
+            <p> Destination Room: @Office.destinedRoom</p>
+            <p> Destination Space Type : @Office.destinedSpaceType </p>
+            <p> Destination Space Code : @Office.destinedSpaceCode</p>
+            <p> Scheduled Date : @Office.dateToCarryOutTheTask</p>
+            <p> Completed Date: @Office.completedDate</p>
+    </div>
+
+
+    <div class="panel"  align="center">
+        <a class="btn btn-primary" href="@routes.OfficeController.updateOffice()">UPDATE NEW LOCATION</a>
+        <a class="btn btn-primary" href="@routes.OfficeController.officeTask(Office.id)">MAINTENANCE</a>
+        <a class="btn btn-primary" href="@routes.OfficeController.officeRelocation(Office.id)">OFFICE RELOCATION</a>
+        <a class="btn btn-warning" href="@routes.OfficeController.editDetailsOffice(Office.id)">EDIT DETAILS</a>
+        <a class="btn btn-danger" href="@routes.OfficeController.deleteOffice(Office.id)">DELETE</a>
+        <br>
+    </div>
+
+}

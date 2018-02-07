@@ -1,0 +1,57 @@
+@(Furniture : furniture)
+
+@layout(Furniture.furnitureName){
+
+    <div class="panel" align="left" style="margin-left: 50px">
+        <h3 align="center" class="panel-heading"> Furniture Details</h3>
+        <p> Name : @Furniture.furnitureName</p>
+        <p> ID : @Furniture.id</p>
+        <p> Barcode : @Furniture.furnitureBarcode</p>
+        <p> Acquisition Date : @Furniture.furnitureAcquisitionDate</p>
+        <p>Bought From : @Furniture.boughtAgent <a class="btn btn-link" href="#"><i class="glyphicon glyphicon-link"></i></a>  </p>
+        <p> Cost : @Furniture.furnitureCost</p>
+        <p> Furniture Key: @Furniture.key</p>
+        <p>Sold To: @Furniture.soldAgent<a class="btn btn-link" href="#"><i class="glyphicon glyphicon-link"></i></a>  </p>
+        <p>Repair Agent: @Furniture.repairDetails <a class="btn btn-link" href="#"><i class="glyphicon glyphicon-link"> </i></a> </p>
+        <p> Task : @Furniture.task </p>
+        <p> Status : @Furniture.status</p>
+        <p> Scheduled Date : @Furniture.dateToCarryOutTheTask</p>
+        <p> Completed on : @Furniture.completedDate</p>
+    </div>
+
+    <div class="panel" align="left" style="margin-left: 50px">
+        <h3 align="center" class="panel-heading">Furniture Location Details </h3>
+        <p> Department : @Furniture.occupyingDept</p>
+        <p> Occupant : @Furniture.occupant <a class="btn btn-link" href="#"><i class="glyphicon glyphicon-link"></i></a> </p>
+        <p> Building No : @Furniture.buildingNo </p>
+        <p> Floor No: @Furniture.floorNo </p>
+        <p> Room : @Furniture.room </p>
+        <p> Space Type: @Furniture.spaceType </p>
+        <p> Space Code : @Furniture.spaceCode </p>
+    </div>
+
+    <div class="panel" align="left" style="margin-left: 50px">
+    <h3 align="center" class="panel-heading" > Furniture Relocating/Destination Details</h3>
+        <p> Department : @Furniture.destinationDept </p>
+        <p> Occupant : @Furniture.destinationDeptOccupant <a class="btn btn-link" href="#"><i class="glyphicon glyphicon-link"></i></a></p>
+        <p> Building No : @Furniture.destinationBuildingNo </p>
+        <p> Floor No : @Furniture.destinationFloorNo </p>
+        <p> Room : @Furniture.destinationRoom </p>
+        <p> Space Type: @Furniture.destinationSpaceType </p>
+        <p> Space Code : @Furniture.destinationSpaceCode </p>
+    </div>
+    <br>
+
+    <div class="panel"  align="center">
+        <a class="btn btn-primary" href="@routes.FurnitureController.updateFurniture()">UPDATE NEW FURNITURE</a>
+        <a class="btn btn-primary" href="@routes.FurnitureController.requestingMoveFurniture(Furniture.id)">REQUEST FOR MOVE</a>
+        <a class="btn btn-primary" href="@routes.FurnitureController.repairFurniture(Furniture.id)">REPAIR</a>
+        <a class="btn btn-primary" href="@routes.FurnitureController.sellRequest(Furniture.id)">SELL</a>
+        <a class="btn btn-primary" href="@routes.FurnitureController.cancelRequest(Furniture.id)">CANCEL REQUEST</a>
+        <a class="btn btn-warning" href="@routes.FurnitureController.editDetails(Furniture.id)">EDIT</a>
+        <a class="btn btn-danger" href="@routes.FurnitureController.deleteFurniture(Furniture.id)">DELETE</a>
+        <br>
+    </div>
+
+}
+

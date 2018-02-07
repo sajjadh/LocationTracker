@@ -1,0 +1,49 @@
+@(Office : List[office])
+
+@layout("Office Details"){
+
+    <h1> LOCATIONS </h1>
+    <p class="text-warning"> NOTE:PLEASE VISIT RESPECTIVE ID FOR MORE DETAILS </p>
+    <table class="table table-bordered">
+        <tr style="text-align: center">
+            <th class="col-md-1"> ID</th>
+            <th>Department</th>
+            <th><a href="#">Occupant</a></th>
+            <th>Occupying BuildingNo</th>
+            <th>FloorNo</th>
+            <th>Occupying Room</th>
+            <th class="col-md-2">Space Type</th>
+            <th>Space Code</th>
+            <th>Task</th>
+            <th class="col-md-1">Status</th>
+            <th>Scheduled Date</th>
+            <th>Maintenance Call</th>
+            <th class="col-md-1">Call Status</th>
+
+        </tr>
+
+        @for(storage2 <- Office) {
+
+            <tr style="text-align: center">
+                <td><a href="@routes.OfficeController.aboutOfficeTask(storage2.id)">@storage2.id</a></td>
+                <td>@storage2.occupyingDept</td>
+                <td>@storage2.occupant</td>
+                <td>@storage2.occupyingBuildingNo</td>
+                <td>@storage2.occupyingFloorNo</td>
+                <td>@storage2.occupyingRoom</td>
+                <td>@storage2.occupyingSpaceType</td>
+                <td>@storage2.occupyingSpaceCode</td>
+                <td>@storage2.todo</td>
+                <td>@storage2.status</td>
+                <td>@storage2.dateToCarryOutTheTask</td>
+                <td>@storage2.maintenanceCall</td>
+                <td>@storage2.callStatus</td>
+
+            </tr>
+            }
+    </table>
+    <br>
+    <footer class="panel" align="right">
+        <a class="btn btn-primary" href="@routes.OfficeController.updateOffice()"><i class="glyphicon-plus">UPDATE</i> </a>
+    </footer>
+}

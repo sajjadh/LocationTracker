@@ -1,0 +1,58 @@
+@(Furniture: List[furniture])
+
+@layout("Furniture Database"){
+
+    <h1> All Furniture </h1>
+    <p class="text-warning" href="#"> NOTE:PLEASE VISIT RESPECTIVE ASSET FOR MORE DETAILS </p>
+    <table class="table table-bordered" >
+        <tr style="text-align: center">
+            <th class="col-md-2"> ID</th>
+            <th class="col-md-2">Furniture Name</th>
+            <th class="col-md-5"> Barcode</th>
+            <th class="col-md-4">Furniture Acquisition Date</th>
+            <th class="col-md-2">Cost</th>
+            <th class="col-md-2">Occupying Dept</th>
+            <th class="col-md-2"><a href="#">Occupant</a></th>
+            <th class="col-md-2">BuildingNo</th>
+            <th class="col-md-2">FloorNo</th>
+            <th class="col-md-2">Room Code</th>
+
+
+            <th>TASK</th>
+            <th>STATUS</th>
+            <th>Scheduled date</th>
+            <th>Completed Date</th>
+        </tr>
+
+
+        @for(storage <- Furniture) {
+
+            <tr style="text-align: center">
+                <td><p>@storage.id</p></td>
+                <td><a href="@routes.FurnitureController.aboutFurniture(storage.id)">@storage.furnitureName</a></td>
+                <td><p>@storage.furnitureBarcode</p></td>
+                <td><p>@storage.furnitureAcquisitionDate</p></td>
+                <td><p>@storage.furnitureCost</p></td>
+                <td><p>@storage.occupyingDept</p></td>
+                <td>@storage.occupant</td>
+                <td><p>@storage.buildingNo</p></td>
+                <td><p>@storage.floorNo</p></td>
+                <td><p>@storage.room</p></td>
+
+
+                <td><a>@storage.task</a></td>
+                <td><a>@storage.status</a></td>
+                <td><p>@storage.dateToCarryOutTheTask</p></td>
+                <td><p>@storage.completedDate</p></td>
+
+                }
+    </tr>
+    </table>
+    <br>
+    <footer class="panel" align="right">
+        <a class="btn btn-primary" href="@routes.FurnitureController.updateFurniture()"><i class="glyphicon-plus">UPDATE</i> </a>
+    </footer>
+
+
+}
+

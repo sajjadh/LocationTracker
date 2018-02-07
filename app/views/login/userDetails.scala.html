@@ -1,0 +1,23 @@
+@(User : List[login])
+@layout("Index"){
+
+   <table border="1px">
+    <tr>
+        <th> Email</th>
+        <th> Fname</th>
+        <th> Lname</th>
+        <th> Password</th>
+    </tr>
+
+    @for(storage4 <- User) {
+
+    <tr style="text-align: center">
+
+        <td><p>@storage4.Email</p></td>
+        <td><p>@storage4.FirstName</p></td>
+        <td><p>@storage4.LastName</p></td>
+        <td><p>@storage4.Password</p></td>
+    </tr>
+    }
+   </table>
+}

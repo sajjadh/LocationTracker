@@ -1,0 +1,47 @@
+@(newLForm : Form[office])
+
+@import helper._;
+
+@layout("Add new Location"){
+
+    <h1> Please fill the form to Add new Location</h1>
+
+    <p><a class="text-warning" href="#">Note: Refer respective documents for more details</a></p>
+    @helper.form(action = routes.OfficeController.saveUpdateOffice()){
+        <div class="col-lg-6 col-lg-offset-3">
+            <p>@helper.inputText(newLForm("id"), 'class -> "form-control")</p>
+
+            <p>@helper.inputText(newLForm("OccupyingDept"), 'class -> "form-control")</p>
+
+            <p>@helper.inputText(newLForm("Occupant"), 'class -> "form-control")</p>
+
+            <p>@helper.inputText(newLForm("OccupyingBuildingNo"), 'class -> "form-control")</p>
+
+            <p>@helper.inputText(newLForm("occupyingFloorNo"), 'class -> "form-control")</p>
+
+            <p>@helper.inputText(newLForm("occupyingRoom"), 'class -> "form-control")</p>
+
+            @helper.select(
+                        newLForm("occupyingSpaceType"),
+                        helper.options(Seq("Office", "General teaching room", "Scientific Lab","Computer Lab", "Engineering Lab",
+            "Medical Lab", "Ancillary area", "Library", "General facility area", "Student Residential Accommodation",
+            "Non usable floor area")),
+            '_label -> "occupyingSpaceType", '_default -> "-------- Select SpaceType --------"
+                , 'class -> "form-control")
+
+            <p>@helper.inputText(newLForm("occupyingSpaceCode"), 'class -> "form-control")</p>
+
+            @helper.select(
+                newLForm("Todo"),
+                helper.options(Seq( "Available")),
+                '_label -> "Todo", '_default -> "-------- TASK --------"
+                , 'class -> "form-control")
+
+
+
+        <p align="right">
+            <button type="submit" class="btn btn-primary"> PROCEED UPDATE LOCATION</button>
+        </p></div>
+
+    }
+  }

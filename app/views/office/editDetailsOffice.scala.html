@@ -1,0 +1,46 @@
+@(editForm : Form[office])
+
+@import helper._;
+
+@layout("Edit Details"){
+
+
+    <h1> Please Edit The Required Fields</h1>
+    <p class="text-warning" href="#"> NOTE:IN CASE OF EDITING TASK DETAILS, REFER "REQUEST" OR DELETE THE PERTICULAR ASSET AND
+        CREATE NEW WITH PROPER DETAILS </p>
+
+    @helper.form(action = routes.OfficeController.saveEditOffice()){
+        <div class="col-lg-6 col-lg-offset-3">
+            <p>@helper.inputText(editForm("id"), 'class -> "form-control")</p>
+
+            <p>@helper.inputText(editForm("OccupyingDept"), 'class -> "form-control")</p>
+
+            <p>@helper.inputText(editForm("Occupant"), 'class -> "form-control")</p>
+
+            <p>@helper.inputText(editForm("OccupyingBuildingNo"), 'class -> "form-control")</p>
+
+            <p>@helper.inputText(editForm("occupyingFloorNo"), 'class -> "form-control")</p>
+
+            <p>@helper.inputText(editForm("occupyingRoom"), 'class -> "form-control")</p>
+
+            @helper.select(
+                editForm("occupyingSpaceType"),
+                helper.options(Seq("Office", "General teaching room", "Scientific Lab","Computer Lab", "Engineering Lab",
+                    "Medical Lab", "Ancillary area", "Library", "General facility area", "Student Residential Accommodation",
+                    "Non usable floor area")),
+                '_label -> "occupyingSpaceType", '_default -> "-------- Select SpaceType --------"
+                , 'class -> "form-control")
+
+
+            <p>@helper.inputText(editForm("occupyingSpaceCode"), 'class -> "form-control")</p>
+
+
+
+
+            <div align="right">
+            <button type="submit" class="btn btn-warning"> PROCEED </button>
+        </div>
+        </div>>
+
+    }
+}

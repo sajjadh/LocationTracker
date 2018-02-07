@@ -1,0 +1,75 @@
+@(taskForm : Form[office])
+
+@layout("Task"){
+    <h1> Submit the form with the respective Task</h1>
+    <a class="text-warning" href="#"> NOTE: REFER NECESSARY DOCUMENTS </a>
+    @helper.form(action = routes.OfficeController.saveTask()){
+        <div class="col-lg-6 col-lg-offset-3">
+            @helper.inputText(taskForm("id"), 'class -> "form-control")
+
+            @helper.inputText(taskForm("occupyingDept"), 'class -> "form-control")
+
+            @helper.inputText(taskForm("Occupant"), 'class -> "form-control")
+
+            @helper.inputText(taskForm("occupyingBuildingNo"), 'class -> "form-control")
+
+            @helper.inputText(taskForm("OccupyingFloorNo"), 'class -> "form-control")
+
+            @helper.inputText(taskForm("OccupyingRoom"), 'class -> "form-control")
+
+            @helper.select(
+                taskForm("OccupyingSpaceType"),
+                helper.options(Seq("Office", "General teaching room", "Scientific Lab","Computer Lab", "Engineering Lab",
+                    "Medical Lab", "Ancillary area", "Library", "General facility area", "Student Residential Accommodation",
+                    "Non usable floor area")),
+                '_label -> "OccupyingSpaceType", '_default -> "-------- Select SpaceType --------"
+                , 'class -> "form-control")
+
+            @helper.inputText(taskForm("OccupyingSpaceCode"), 'class -> "form-control")
+
+            @helper.select(
+                taskForm("Todo"),
+                helper.options(Seq( "Office Maintenance")),
+                '_label -> "Todo", '_default -> "-------- Todo--------"
+                , 'class -> "form-control")
+
+
+            @helper.select(
+                taskForm("maintenanceCall"),
+                helper.options(Seq("Office to be openned", "Lighting To be Changed","Carpet to br Cleaned" ,"Available")),
+                '_label -> "MaintenanceCall", '_default -> "-------- Select --------"
+                , 'class -> "form-control")
+
+            @helper.select(
+                taskForm("CallStatus"),
+                helper.options(Seq("Logged", "Actionned","Cancelled" ,"Available")),
+                '_label -> "CallStatus", '_default -> "-------- Select --------"
+                , 'class -> "form-control")
+
+            @helper.select(
+                taskForm("Status"),
+                helper.options(Seq("Completed", "On Progress", "Available", "Not Available")),
+                '_label -> "Status", '_default -> "-------- Select STATUS --------"
+                , 'class -> "form-control")
+
+
+            @helper.inputDate(taskForm("DateToCarryOutTheTask"), 'class -> "form-control")
+
+
+            @helper.inputDate(taskForm("completedDate"), 'class -> "form-control")
+
+
+
+        <p align="right">
+            <button type="submit" class="btn btn-primary"> PROCEED REQUEST</button>
+        </p></div>
+
+
+
+
+    
+    }
+    
+    
+    
+}

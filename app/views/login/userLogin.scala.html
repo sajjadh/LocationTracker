@@ -1,0 +1,26 @@
+@(Rform : Form[login])
+@layout("Login"){
+    <h2 style="margin-left: 25%"> Login Here</h2>
+    <p style="margin-left: 25%" class="text-warning"><i class="glyphicon glyphicon-comment"></i>Concerning security issue an authorized officer
+        should create the account for new employees</p>
+    <form class="glyphicon-registration-mark" method="post" action="@routes.LoginController.authenticate()" >
+
+        <div class="col-lg-5 col-lg-offset-3">
+
+
+
+            <label ><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" class="form-control" name="email" required>
+            <br>
+
+            <label ><b>Password</b></label>
+            <input type="password" class="form-control" placeholder="Enter Password"  required>
+            <br>
+
+            <div  align="right">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+        </div>
+    </form>
+
+}

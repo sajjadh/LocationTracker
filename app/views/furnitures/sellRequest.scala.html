@@ -1,0 +1,82 @@
+@(sellForm: Form[furniture])
+
+@import helper._;
+
+@layout("Sell Furniture"){
+
+    <h1> Submit the form with the respective Task</h1>
+    @helper.form(action = routes.FurnitureController.saveRequest()){
+        <div class="col-lg-6 col-lg-offset-3">
+        @helper.inputText(sellForm("id"), 'class -> "form-control")
+
+            @helper.select(
+                sellForm("FurnitureName"),
+                helper.options(Seq("Mel Desk","pin Desk","Mel Bookcase","Pin Bookcase", "Pin Filing Cabinet",
+                    "Metal Filing Cabinets", "Gas-lift Chair", "Fixed-frame Chair")),
+                '_label -> "Furniture Name", '_default -> "---- Select Furniture ----"
+                , 'class -> "form-control")
+
+
+            @helper.select(
+                sellForm("FurnitureBarcode"),
+                helper.options(Seq("4605664000050", "8076809513456", "9780444505156","3155250001387", "3014260115531",
+                    "3006634623969", "8020187300016", "1234567891011")),
+                '_label -> "Furniture barcode", '_default -> "---- Select Barcode ----"
+                , 'class -> "form-control")
+
+
+            @helper.inputDate(sellForm("furnitureAcquisitionDate"), 'class -> "form-control")
+
+
+            @helper.inputText(sellForm("FurnitureCost"), 'class -> "form-control")
+
+
+
+            @helper.inputText(sellForm("OccupyingDept"), 'class -> "form-control")
+
+
+            @helper.inputText(sellForm("Occupant"), 'class -> "form-control")
+
+
+            @helper.inputText(sellForm("BuildingNo"), 'class -> "form-control")
+
+
+            @helper.inputText(sellForm("FloorNo"), 'class -> "form-control")
+
+            @helper.inputText(sellForm("Room"), 'class -> "form-control")
+
+            @helper.select(
+                sellForm("SpaceType"),
+                helper.options(Seq("Office", "General teaching room", "Scientific Lab","Computer Lab", "Engineering Lab",
+                    "Medical Lab", "Ancillary area", "Library", "General facility area", "Student Residential Accommodation",
+                    "Non usable floor area")),
+                '_label -> "SpaceType", '_default -> "-------- Select SpaceType --------"
+                , 'class -> "form-control")
+
+            @helper.inputText(sellForm("SpaceCode"), 'class -> "form-control")
+
+
+            @helper.select(
+                sellForm("Task"),
+                helper.options(Seq( "Requesting To Move", "Re-scheduled", "Repair", "Sold")),
+                '_label -> "Task", '_default -> "-------- Select TASK --------"
+                , 'class -> "form-control")
+
+            @helper.select(
+                sellForm("Status"),
+                helper.options(Seq("Completed", "On Progress", "Updated", "Cancelled", "Sold","Available" , "Not Available")),
+                '_label -> "Status", '_default -> "-------- Select STATUS --------"
+                , 'class -> "form-control")
+
+            @helper.inputDate(sellForm("CompletedDate"), 'class -> "form-control")
+
+            @helper.inputText(sellForm("SoldAgent"), 'class -> "form-control")
+            <p class="text-info"><i class="glyphicon glyphicon-comment">Note -: Please mention all the details with selling the furniture</i></p>
+
+        <p align="right">
+        <button type="submit" class="btn btn-primary"> PROCEED REPAIR </button>
+        </p></div>
+
+    }
+
+}

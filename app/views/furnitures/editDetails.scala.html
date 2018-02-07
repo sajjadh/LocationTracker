@@ -1,0 +1,77 @@
+@(EditForm: Form[furniture])
+
+@import helper._;
+
+@layout("Edit Options  "){
+
+
+    <h1> Please Edit the Required Fields</h1>
+    <p class="text-warning"> Note:IN CASE OF EDITING TASK DETAILS, REFER "REQUEST" OR DELETE THE PERTICULAR ASSET AND
+        CREATE NEW WITH PROPER DETAILS </p>
+
+    @helper.form(action = routes.FurnitureController.saveEdit()){
+
+
+            <div class="col-lg-6 col-lg-offset-3">
+            @helper.inputText(EditForm("id"), 'class -> "form-control")
+
+            @helper.select(
+                EditForm("FurnitureName"),
+                helper.options(Seq("Mel Desk","pin Desk","Mel Bookcase","Pin Bookcase", "Pin Filing Cabinet",
+                    "Metal Filing Cabinets", "Gas-lift Chair", "Fixed-frame Chair")),
+                '_label -> "Furniture Name", '_default -> "---- Select Furniture ----"
+                , 'class -> "form-control")
+
+
+            @helper.select(
+                EditForm("FurnitureBarcode"),
+                helper.options(Seq("4605664000050", "8076809513456", "9780444505156","3155250001387", "3014260115531",
+                    "3006634623969", "8020187300016", "1234567891011")),
+                '_label -> "Furniture barcode", '_default -> "---- Select Barcode ----"
+                , 'class -> "form-control")
+
+
+            @helper.inputDate(EditForm("furnitureAcquisitionDate"), 'class -> "form-control")
+
+
+            @helper.inputText(EditForm("FurnitureCost"), 'class -> "form-control")
+
+
+
+            @helper.inputText(EditForm("OccupyingDept"), 'class -> "form-control")
+
+
+            @helper.inputText(EditForm("Occupant"), 'class -> "form-control")
+
+
+            @helper.inputText(EditForm("BuildingNo"), 'class -> "form-control")
+
+
+            @helper.inputText(EditForm("FloorNo"), 'class -> "form-control")
+
+            @helper.inputText(EditForm("Room"), 'class -> "form-control")
+
+            @helper.select(
+                EditForm("SpaceType"),
+                helper.options(Seq("Office", "General teaching room", "Scientific Lab","Computer Lab", "Engineering Lab",
+                    "Medical Lab", "Ancillary area", "Library", "General facility area", "Student Residential Accommodation",
+                    "Non usable floor area")),
+                '_label -> "SpaceType", '_default -> "-------- Select SpaceType --------"
+                , 'class -> "form-control")
+
+            @helper.inputText(EditForm("SpaceCode"), 'class -> "form-control")
+
+
+            @helper.inputText(EditForm("BoughtAgent"), 'class -> "form-control")
+                <p class="text-info"><i class="glyphicon glyphicon-comment">(Note -: Please mention all the details with Purchasing the furniture</i></p>
+
+            @helper.inputText(EditForm("key"), 'class -> "form-control")
+                <p class="text-info"><i class="glyphicon glyphicon-comment">Note -: Please Input the key number if available</i></p>
+
+                <div align="right">
+            <button type="submit" class="btn btn-warning"> EDIT DETAILS </button>
+                </div>
+            </div>
+
+    }
+}

@@ -1,0 +1,79 @@
+@(officeRelForm : Form[office])
+
+@layout("Relocation of Office"){
+
+
+    <h1> Submit the form with the respective Task</h1>
+    <a class="text-warning" href="#"> NOTE: REFER NECESSARY DOCUMENTS </a>
+    @helper.form(action = routes.OfficeController.saveOfficeRelocation()){
+        <div class="col-lg-6 col-lg-offset-3">
+
+            @helper.inputText(officeRelForm("id"), 'class -> "form-control")
+
+            @helper.inputText(officeRelForm("occupyingDept"), 'class -> "form-control")
+
+            @helper.inputText(officeRelForm("Occupant"), 'class -> "form-control")
+
+            @helper.inputText(officeRelForm("occupyingBuildingNo"), 'class -> "form-control")
+
+            @helper.inputText(officeRelForm("OccupyingFloorNo"), 'class -> "form-control")
+
+            @helper.inputText(officeRelForm("OccupyingRoom"), 'class -> "form-control")
+
+            @helper.select(
+                    officeRelForm("OccupyingSpaceType"),
+                    helper.options(Seq("Office", "General teaching room", "Scientific Lab","Computer Lab", "Engineering Lab",
+                "Medical Lab", "Ancillary area", "Library", "General facility area", "Student Residential Accommodation",
+                "Non usable floor area")),
+        '_label -> "OccupyingSpaceType", '_default -> "-------- Select SpaceType --------"
+                , 'class -> "form-control")
+
+            @helper.inputText(officeRelForm("OccupyingSpaceCode"), 'class -> "form-control")
+
+
+            @helper.select(
+                officeRelForm("Todo"),
+                helper.options(Seq( "Relocation","Under Repair")),
+                '_label -> "Todo", '_default -> "-------- Select Task--------"
+                , 'class -> "form-control")
+
+            @helper.select(
+                officeRelForm("Status"),
+                helper.options(Seq("Completed", "On Progress","Cancelled", "Available", "Not Available")),
+                '_label -> "Status", '_default -> "-------- Select STATUS --------"
+                , 'class -> "form-control")
+
+            @helper.inputDate(officeRelForm("DateToCarryOutTheTask"), 'class -> "form-control")
+
+            @helper.inputDate(officeRelForm("CompletedDate"), 'class -> "form-control")
+
+            @helper.inputText(officeRelForm("DestinedDept"), 'class -> "form-control")
+
+            @helper.inputText(officeRelForm("DestinedOccupant"), 'class -> "form-control")
+
+            @helper.inputText(officeRelForm("DestinedBuildingNo"), 'class -> "form-control")
+
+            @helper.inputText(officeRelForm("DestinedFloorNo"), 'class -> "form-control")
+
+            @helper.inputText(officeRelForm("DestinedRoom"), 'class -> "form-control")
+
+            @helper.select(
+                officeRelForm("DestinedSpaceType"),
+                helper.options(Seq("Office", "General teaching room", "Scientific Lab","Computer Lab", "Engineering Lab",
+                    "Medical Lab", "Ancillary area", "Library", "General facility area", "Student Residential Accommodation",
+                    "Non usable floor area")),
+                '_label -> "DestinationSpaceType", '_default -> "-------- Select SpaceType --------"
+                , 'class -> "form-control")
+
+            @helper.inputText(officeRelForm("DestinedSpaceCode"), 'class -> "form-control")
+
+
+
+        <p align="right">
+            <button type="submit" class="btn btn-primary"> PROCEED REQUEST</button>
+        </p></div>
+    
+    
+    
+}
+}
